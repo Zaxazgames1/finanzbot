@@ -7,6 +7,17 @@ import re
 from utils.nlp_utils import tokenizar_texto, lematizar_texto, pos_tagging, crear_embedding, similaridad_textos, extraer_keywords
 from utils.analysis import analizar_empresa, generar_mensaje_resultado
 
+# Descargar recursos de NLTK
+import nltk
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
+
 # Configuración de la página
 st.set_page_config(
     page_title="FinanzBot - Análisis Empresarial",
